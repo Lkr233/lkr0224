@@ -15,7 +15,7 @@ public class AdministratorController {
         return null;
     }
 
-    public
+
 
     @PostMapping("/updateProdfile")
     public void updateProdfile(){
