@@ -1,10 +1,9 @@
 package io.lkr.jacrtadministrationback.controller;
 
 import io.lkr.jacrtadministrationback.dto.in.AdministratorLoginInDTO;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import io.lkr.jacrtadministrationback.dto.in.AdministratorUpdateProfileInDTO;
+import io.lkr.jacrtadministrationback.dto.out.AdministratorGetProfileOutDTO;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/administrator")
@@ -16,9 +15,14 @@ public class AdministratorController {
     }
 
 
+    @GetMapping("/getProfile")
+    public AdministratorGetProfileOutDTO getProfile(Integer administratorId){
+
+        return null;
+    }
 
     @PostMapping("/updateProdfile")
-    public void updateProdfile(){
+    public void updateProdfile(@RequestBody AdministratorUpdateProfileInDTO administratorUpdateProfileInDTO){
 
     }
 
