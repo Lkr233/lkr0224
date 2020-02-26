@@ -1,7 +1,9 @@
 package io.lkr.jacrtadministrationback.dao;
 
 import io.lkr.jacrtadministrationback.po.OrderHistory;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface OrderHistoryMapper {
     int deleteByPrimaryKey(Long orderHistoryId);
 

@@ -1,7 +1,11 @@
 package io.lkr.jacrtadministrationback.dao;
 
 import io.lkr.jacrtadministrationback.po.ProductDetail;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Repository
 public interface ProductDetailMapper {
     int deleteByPrimaryKey(Integer productId);
 
@@ -16,4 +20,6 @@ public interface ProductDetailMapper {
     int updateByPrimaryKeyWithBLOBs(ProductDetail record);
 
     int updateByPrimaryKey(ProductDetail record);
+
+    void batchDelete(List<Integer> productIds);
 }

@@ -1,7 +1,9 @@
 package io.lkr.jacrtadministrationback.dao;
 
 import io.lkr.jacrtadministrationback.po.Address;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AddressMapper {
     int deleteByPrimaryKey(Integer addressId);
 

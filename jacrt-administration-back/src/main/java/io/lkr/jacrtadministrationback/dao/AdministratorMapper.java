@@ -1,7 +1,9 @@
 package io.lkr.jacrtadministrationback.dao;
 
 import io.lkr.jacrtadministrationback.po.Administrator;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AdministratorMapper {
     int deleteByPrimaryKey(Integer administratorId);
 

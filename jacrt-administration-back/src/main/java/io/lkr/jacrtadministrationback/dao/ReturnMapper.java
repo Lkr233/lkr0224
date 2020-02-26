@@ -1,7 +1,9 @@
 package io.lkr.jacrtadministrationback.dao;
 
 import io.lkr.jacrtadministrationback.po.Return;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ReturnMapper {
     int deleteByPrimaryKey(Integer returnId);
 
