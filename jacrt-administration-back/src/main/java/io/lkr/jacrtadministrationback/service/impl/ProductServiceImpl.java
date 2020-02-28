@@ -33,6 +33,7 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public Integer create(ProductCreateInDTO productCreateInDTO) {
 
+
         Product product = new Product();
         product.setProductCode(productCreateInDTO.getProductCode());
         product.setProductName(productCreateInDTO.getProductName());
@@ -43,9 +44,7 @@ public class ProductServiceImpl implements ProductService {
         product.setMainPicUrl(productCreateInDTO.getMainPicUrl());
         product.setRewordPoints(productCreateInDTO.getRewordPoints());
         product.setSortOrder(productCreateInDTO.getSortOrder());
-        String description = productCreateInDTO.getDescription();
-        String productAbstract = description.substring(0, Math.min(100, description.length()));
-        product.setProductAbstract(productAbstract);
+        product.setProductAbstract(productCreateInDTO.getProductAbstract());
         productMapper.insertSelective(product);
 
         Integer productId = product.getProductId();
@@ -74,9 +73,7 @@ public class ProductServiceImpl implements ProductService {
         product.setStatus(productUpdateInDTO.getStatus());
         product.setRewordPoints(productUpdateInDTO.getRewordPoints());
         product.setSortOrder(productUpdateInDTO.getSortOrder());
-        String description = productUpdateInDTO.getDescription();
-        String productAbstract = description.substring(0, Math.min(100, description.length()));
-        product.setProductAbstract(productAbstract);
+        product.setProductAbstract(productUpdateInDTO.getProductAbstract());
         productMapper.updateByPrimaryKeySelective(product);
 
         ProductDetail productDetail = new ProductDetail();
@@ -88,28 +85,28 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
-
+    @Override
     @Transactional
     public void delete(Integer productId) {
         productMapper.deleteByPrimaryKey(productId);
         productDetailMapper.deleteByPrimaryKey(productId);
     }
 
-
+    @Override
     @Transactional
     public void batchDelete(List<Integer> productIds) {
         productMapper.batchDelete(productIds);
         productDetailMapper.batchDelete(productIds);
     }
 
-
+    @Override
     public Page<ProductListOutDTO> search(Integer pageNum) {
         PageHelper.startPage(pageNum, 10);
         Page<ProductListOutDTO> page = productMapper.search();
         return page;
     }
 
-
+    @Override
     public ProductShowOutDTO getById(Integer productId) {
         Product product = productMapper.selectByPrimaryKey(productId);
         ProductDetail productDetail = productDetailMapper.selectByPrimaryKey(productId);
@@ -125,6 +122,7 @@ public class ProductServiceImpl implements ProductService {
         productShowOutDTO.setRewordPoints(product.getRewordPoints());
         productShowOutDTO.setSortOrder(product.getSortOrder());
         productShowOutDTO.setStockQuantity(product.getStockQuantity());
+        productShowOutDTO.setProductAbstract(product.getProductAbstract());
 
         productShowOutDTO.setDescription(productDetail.getDescription());
         String otherPicUrlsJson = productDetail.getOtherPicUrls();

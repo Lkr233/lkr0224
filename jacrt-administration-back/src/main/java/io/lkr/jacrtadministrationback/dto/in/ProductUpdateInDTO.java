@@ -4,6 +4,7 @@ import java.util.List;
 
 
 public class ProductUpdateInDTO {
+
     private Integer productId;
     private String productName;
     private Double price;
@@ -13,6 +14,7 @@ public class ProductUpdateInDTO {
     private String mainPicUrl;
     private Integer rewordPoints;
     private Integer sortOrder;
+    private String productAbstract;
     private String description;
     private List<String> otherPicUrls;
 
@@ -103,4 +105,11 @@ public class ProductUpdateInDTO {
     public void setOtherPicUrls(List<String> otherPicUrls) {
         this.otherPicUrls = otherPicUrls;
     }
-}
+
+    public String getProductAbstract() {
+        return productAbstract;
+    }
+
+    public void setProductAbstract(String productAbstract) {
+        this.productAbstract = productAbstract;
+    }}
