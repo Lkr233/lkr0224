@@ -37,4 +37,7 @@ public class AdministratorListOutDTO {
     public void setCreateTimestamp(Long createTimestamp) {
         this.createTimestamp = createTimestamp;
     }
+
+    public void setRealName(String realName) {
+    }
 }

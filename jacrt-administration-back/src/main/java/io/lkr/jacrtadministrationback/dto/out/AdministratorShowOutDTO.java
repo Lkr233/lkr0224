@@ -46,4 +46,7 @@ public class AdministratorShowOutDTO {
     public void setStatus(Byte status) {
         this.status = status;
     }
+
+    public void setRealName(String realName) {
+    }
 }
