@@ -1,5 +1,7 @@
 package io.lkr.jacrtstoreback.dao;
 
+import com.github.pagehelper.Page;
+import io.lkr.jacrtstoreback.dto.out.ProductListOutDTO;
 import io.lkr.jacrtstoreback.po.Product;
 
 public interface ProductMapper {
@@ -14,4 +16,6 @@ public interface ProductMapper {
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    Page<ProductListOutDTO> search();
 }
