@@ -22,7 +22,7 @@
     email, email_verified, status, create_time, news_subscribed, reword_points, default_address_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from jcart_customer
     where customer_id = #{customerId,jdbcType=INTEGER}
@@ -31,24 +31,21 @@
     delete from jcart_customer
     where customer_id = #{customerId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="io.lkr.jacrtstoreback.po.Customer">
-    insert into jcart_customer (customer_id, username, real_name, 
-      avatar_url, encrypted_password, mobile, 
-      mobile_verified, email, email_verified, 
-      status, create_time, news_subscribed, 
+  <insert id="insert" parameterType="io.cjf.jcartstoreback.po.Customer">
+    insert into jcart_customer (customer_id, username, real_name,
+      avatar_url, encrypted_password, mobile,
+      mobile_verified, email, email_verified,
+      status, create_time, news_subscribed,
       reword_points, default_address_id)
-    values (#{customerId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
-      #{avatarUrl,jdbcType=VARCHAR}, #{encryptedPassword,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
-      #{mobileVerified,jdbcType=BIT}, #{email,jdbcType=VARCHAR}, #{emailVerified,jdbcType=BIT}, 
-      #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{newsSubscribed,jdbcType=BIT}, 
+    values (#{customerId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR},
+      #{avatarUrl,jdbcType=VARCHAR}, #{encryptedPassword,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR},
+      #{mobileVerified,jdbcType=BIT}, #{email,jdbcType=VARCHAR}, #{emailVerified,jdbcType=BIT},
+      #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{newsSubscribed,jdbcType=BIT},
       #{rewordPoints,jdbcType=INTEGER}, #{defaultAddressId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="io.lkr.jacrtstoreback.po.Customer">
+  <insert id="insertSelective" parameterType="io.cjf.jcartstoreback.po.Customer" useGeneratedKeys="true" keyProperty="customerId">
     insert into jcart_customer
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="customerId != null">
-        customer_id,
-      </if>
       <if test="username != null">
         username,
       </if>
@@ -90,9 +87,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="customerId != null">
-        #{customerId,jdbcType=INTEGER},
-      </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
       </if>
@@ -134,7 +128,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="io.lkr.jacrtstoreback.po.Customer">
+  <update id="updateByPrimaryKeySelective" parameterType="io.cjf.jcartstoreback.po.Customer">
     update jcart_customer
     <set>
       <if test="username != null">
@@ -179,7 +173,7 @@
     </set>
     where customer_id = #{customerId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.lkr.jacrtstoreback.po.Customer">
+  <update id="updateByPrimaryKey" parameterType="io.cjf.jcartstoreback.po.Customer">
     update jcart_customer
     set username = #{username,jdbcType=VARCHAR},
       real_name = #{realName,jdbcType=VARCHAR},
@@ -196,4 +190,19 @@
       default_address_id = #{defaultAddressId,jdbcType=INTEGER}
     where customer_id = #{customerId,jdbcType=INTEGER}
   </update>
+
+  <!--  custom-->
+  <select id="selectByUsername" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from jcart_customer
+    where username = #{username}
+  </select>
+
+  <select id="selectByEmail" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from jcart_customer
+    where email = #{email}
+  </select>
 </mapper>

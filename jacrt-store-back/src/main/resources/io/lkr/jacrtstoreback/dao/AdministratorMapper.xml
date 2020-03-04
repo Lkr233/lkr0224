@@ -16,7 +16,7 @@
     avatar_url
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from jcart_administrator
     where administrator_id = #{administratorId,jdbcType=INTEGER}
@@ -25,15 +25,15 @@
     delete from jcart_administrator
     where administrator_id = #{administratorId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="io.lkr.jacrtstoreback.po.Administrator">
-    insert into jcart_administrator (administrator_id, username, real_name, 
-      email, encrypted_password, status, 
+  <insert id="insert" parameterType="io.cjf.jcartstoreback.po.Administrator">
+    insert into jcart_administrator (administrator_id, username, real_name,
+      email, encrypted_password, status,
       create_time, avatar_url)
-    values (#{administratorId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{encryptedPassword,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+    values (#{administratorId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR}, #{encryptedPassword,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT},
       #{createTime,jdbcType=TIMESTAMP}, #{avatarUrl,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="io.lkr.jacrtstoreback.po.Administrator">
+  <insert id="insertSelective" parameterType="io.cjf.jcartstoreback.po.Administrator">
     insert into jcart_administrator
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="administratorId != null">
@@ -88,7 +88,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="io.lkr.jacrtstoreback.po.Administrator">
+  <update id="updateByPrimaryKeySelective" parameterType="io.cjf.jcartstoreback.po.Administrator">
     update jcart_administrator
     <set>
       <if test="username != null">
@@ -115,7 +115,7 @@
     </set>
     where administrator_id = #{administratorId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.lkr.jacrtstoreback.po.Administrator">
+  <update id="updateByPrimaryKey" parameterType="io.cjf.jcartstoreback.po.Administrator">
     update jcart_administrator
     set username = #{username,jdbcType=VARCHAR},
       real_name = #{realName,jdbcType=VARCHAR},
