@@ -23,7 +23,7 @@ public class OrderHistory {
         this.orderHistoryId = orderHistoryId;
     }
 
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 

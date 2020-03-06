@@ -3,6 +3,8 @@ package io.lkr.jacrtadministrationback.dao;
 import io.lkr.jacrtadministrationback.po.Address;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AddressMapper {
     int deleteByPrimaryKey(Integer addressId);
@@ -16,4 +18,6 @@ public interface AddressMapper {
     int updateByPrimaryKeySelective(Address record);
 
     int updateByPrimaryKey(Address record);
+
+    List<Address> selectByCustomerId(Integer customerId);
 }

@@ -1,5 +1,7 @@
 package io.lkr.jacrtadministrationback.dto.out;
 
+import io.lkr.jacrtadministrationback.vo.OrderProductVO;
+
 import java.util.List;
 
 public class OrderShowOutDTO {
@@ -135,7 +137,10 @@ public class OrderShowOutDTO {
         return orderProducts;
     }
 
-    public void setOrderProducts(List<OrderProductShowOutDTO> orderProducts) {
+    public void setOrderProducts(List<OrderProductVO> orderProducts) {
         this.orderProducts = orderProducts;
+    }
+
+    public void setCustomerName(String realName) {
     }
 }

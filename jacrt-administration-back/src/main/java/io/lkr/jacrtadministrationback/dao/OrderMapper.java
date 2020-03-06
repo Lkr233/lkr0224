@@ -1,5 +1,7 @@
 package io.lkr.jacrtadministrationback.dao;
 
+import com.github.pagehelper.Page;
+import io.lkr.jacrtadministrationback.dto.out.OrderListOutDTO;
 import io.lkr.jacrtadministrationback.po.Order;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +18,6 @@ public interface OrderMapper {
     int updateByPrimaryKeySelective(Order record);
 
     int updateByPrimaryKey(Order record);
+
+    Page<OrderListOutDTO> search();
 }
