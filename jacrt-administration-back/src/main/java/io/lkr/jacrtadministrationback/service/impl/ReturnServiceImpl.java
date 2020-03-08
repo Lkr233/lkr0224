@@ -15,9 +15,21 @@ public class ReturnServiceImpl implements ReturnService {
     private ReturnMapper returnMapper;
 
 
+    @Override
     public Page<Return> search(Integer pageNum) {
         PageHelper.startPage(pageNum, 10);
         Page<Return> page = returnMapper.search();
         return page;
+    }
+
+    @Override
+    public Return getById(Integer returnId) {
+        Return aReturn = returnMapper.selectByPrimaryKey(returnId);
+        return aReturn;
+    }
+
+    @Override
+    public void update(Return aReturn) {
+        returnMapper.updateByPrimaryKeySelective(aReturn);
     }
 }
