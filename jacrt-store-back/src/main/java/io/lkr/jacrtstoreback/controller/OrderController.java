@@ -50,8 +50,9 @@ public class OrderController {
 
         return pageOutDTO;
     }
+
     @GetMapping("/getById")
-    public OrderShowOutDTO getById(@RequestParam Long orderId){
-        return null;
-    }
-}
+    public OrderShowOutDTO getById(@RequestParam Long orderId) {
+        OrderShowOutDTO orderShowOutDTO = orderService.getById(orderId);
+        return orderShowOutDTO;
+    }}
